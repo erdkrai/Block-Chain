@@ -28,7 +28,7 @@ class Block{
             this.hash = this.calculateHash();
         }
 
-        console.log("Block Mined: " + this.hash);
+        console.log("\nBlock Mined: " + this.hash);
     }
 }
 
@@ -52,7 +52,7 @@ class BlockChain{
         let block = new Block(Date.now(), this.pendingTransactions);
         block.mineBlock(this.difficulty);
 
-        console.log('Block Successfully Mined !');
+        //console.log('Block Successfully Mined !');
         this.chain.push(block); 
 
         this.pendingTransactions = [
@@ -106,32 +106,21 @@ let savjeeCoin = new BlockChain();
 savjeeCoin.createTransaction(new Transaction('address1', 'address2', 20));
 savjeeCoin.createTransaction(new Transaction('address2', 'address1', 5));
 
-console.log('\n Starting the Miner....');
+
+console.log('\nStarting the Miner....\n');
+console.log('Starting Balance of Deepanshu is ', savjeeCoin.getBalanceOfAddress('Deepanshu-Address'));
+console.log('\n');
+while(1==1){
+    
 savjeeCoin.minePendingTransactions('Deepanshu-Address');
-console.log('\n Balance of Deepanshu is ', savjeeCoin.getBalanceOfAddress('Deepanshu-Address'));
+//console.log('\n Balance of Deepanshu is ', savjeeCoin.getBalanceOfAddress('Deepanshu-Address'));
 
-console.log('\n Starting the Miner Again....');
-savjeeCoin.minePendingTransactions('Deepanshu-Address');
-console.log('\n Balance of Deepanshu is ', savjeeCoin.getBalanceOfAddress('Deepanshu-Address'));
+//console.log('\n Starting the Miner Again....');
+//savjeeCoin.minePendingTransactions('Deepanshu-Address');
+//console.log('\n Balance of Deepanshu is ', savjeeCoin.getBalanceOfAddress('Deepanshu-Address'));
 
-console.log('\n Starting the Miner one more time....');
-savjeeCoin.minePendingTransactions('Deepanshu-Address');
-console.log('\n Balance of Deepanshu is ', savjeeCoin.getBalanceOfAddress('Deepanshu-Address'));
+//console.log('\n Starting the Miner one more time....');
 
-/*console.log('Mining Block 1...');
-savjeeCoin.addBlock(new Block(1, "23/02/2019", { amount: 10000 }));
-
-console.log('Mining Block 2...');
-savjeeCoin.addBlock(new Block(2, "25/02/2019", { amount: 13000 }));
-
-console.log('Mining Block 3...');
-savjeeCoin.addBlock(new Block(3, "28/02/2019", { amount: 8000 }));*/
-
-//console.log('Is the Chain Valid ? ' + savjeeCoin.isChainValid());
-
-//savjeeCoin.chain[1].data = { amount: 50000 };
-//savjeeCoin.chain[1].hash = savjeeCoin.chain[1].calculateHash();
-//console.log('Is the Chain Valid ? ' + savjeeCoin.isChainValid());
+}
 
 
-//console.log(JSON.stringify(savjeeCoin, null, 4));
